@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Page Title Goes Here</title>
+  <meta charset="utf-8">
+  <script>
+  var canvas;
+  var ctx;
+
+  function drawGround() {
+    canvas = document.getElementById('House');
+    ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#663300";
+    ctx.strokeStyle = "black";
+    ctx.fillRect(0,475,400,25);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(400,475);
+    ctx.lineTo(499,250);
+    ctx.lineTo(499,295);
+    ctx.lineTo(410,499);
+    ctx.lineTo(400,499);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(0,475);
+    ctx.lineTo(100,250);
+    ctx.lineTo(500,250);
+    ctx.lineTo(400,475);
+    ctx.fillStyle = "green";
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+  }
+  </script>
+</head>
+<body onload="drawGround()">
+  <canvas width="500" height="500" id="House" style="background-color: #46b9b9;"></canvas>
+</body>
+</html>
