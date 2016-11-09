@@ -10,34 +10,190 @@
   function drawGround() {
     canvas = document.getElementById('House');
     ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#663300";
+    ctx.fillStyle = "#333333";
     ctx.strokeStyle = "black";
-    ctx.fillRect(0,475,400,25);
+    ctx.lineWidth = 1.5;
+
+    //road
+    ctx.beginPath();
+    ctx.moveTo(0,500);
+    ctx.lineTo(500,300);
+    ctx.lineTo(500,400);
+    ctx.lineTo(250,500);
+    ctx.closePath();
+    ctx.fill();
     ctx.stroke();
 
+    //grass
+    ctx.fillStyle = "#8c8c8c";
     ctx.beginPath();
-    ctx.moveTo(400,475);
-    ctx.lineTo(499,250);
-    ctx.lineTo(499,295);
-    ctx.lineTo(410,499);
-    ctx.lineTo(400,499);
+    ctx.moveTo(0,500);
+    ctx.lineTo(500,300);
+    ctx.lineTo(500,280);
+    ctx.lineTo(0,480);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
 
     ctx.beginPath();
-    ctx.moveTo(0,475);
-    ctx.lineTo(100,250);
-    ctx.lineTo(500,250);
-    ctx.lineTo(400,475);
+    ctx.moveTo(250,500);
+    ctx.lineTo(500,400);
+    ctx.lineTo(500,420);
+    ctx.lineTo(300,500);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //pathways
+    ctx.fillStyle = "#009933";
+    ctx.beginPath();
+    ctx.moveTo(300,500);
+    ctx.lineTo(500,500);
+    ctx.lineTo(500,420);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(0,480);
+    ctx.lineTo(500,280);
+    ctx.lineTo(500,0);
+    ctx.lineTo(0,0);
+    ctx.closePath();
+    ctx.fill();
+
+    //house body
+    ctx.fillStyle = "#b35900";
+    ctx.beginPath();
+    ctx.moveTo(100,400);
+    ctx.lineTo(450,265);
+    ctx.lineTo(450,185);
+    ctx.lineTo(100,310);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //house side
+    ctx.beginPath();
+    ctx.moveTo(100,400);
+    ctx.lineTo(10,320);
+    ctx.lineTo(10,240);
+    ctx.stroke();
+    ctx.lineTo(100,310);
+    ctx.closePath();
+    ctx.fill();
+
+
+    //house left incline
+    ctx.beginPath();
+    ctx.moveTo(10,240);
+    ctx.lineTo(50,230);
+    ctx.lineTo(100,310);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#331a00";
+    ctx.beginPath();
+    ctx.moveTo(50,235);
+    ctx.lineTo(50,225);
+    ctx.lineTo(8,235);
+    ctx.lineTo(10,245);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(50,235);
+    ctx.lineTo(50,225);
+    ctx.lineTo(360,120);
+    ctx.lineTo(450,185);
+    ctx.lineTo(100,310);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    /*
+    ctx.beginPath();
+    ctx.moveTo(450,185);
+    ctx.lineTo(360,140);
+    ctx.lineTo(360,100);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(360,100);
+    ctx.lineTo(360,140);
+    ctx.lineTo(100,230);
+    ctx.lineTo(10,240);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    */
+    /*
+    ctx.beginPath();
+    ctx.moveTo(100,310);
+    ctx.lineTo(450,185);
+    ctx.lineTo(425,150);
+    ctx.lineTo(50,270);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    */
+    /* ctx.beginPath();
+    ctx.moveTo(10,470);
+    ctx.lineTo(400,470);
+    ctx.lineTo(400,490);
+    ctx.lineTo(10,490);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(400,470);
+    ctx.lineTo(490,270);
+    ctx.lineTo(490,290);
+    ctx.lineTo(400,490);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //grass
+    ctx.beginPath();
+    ctx.moveTo(10,470);
+    ctx.lineTo(100,270);
+    ctx.lineTo(490,270);
+    ctx.lineTo(400,470);
     ctx.fillStyle = "green";
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+
+    ctx.fillStyle = "red";
+    ctx.beginPath();
+    ctx.moveTo(105,450);
+    ctx.lineTo(355,450);
+    ctx.lineTo(355,300);
+    ctx.lineTo(105,300);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(355,450);
+    ctx.lineTo(425,400);
+    ctx.lineTo(425,250);
+    ctx.lineTo(355,300);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    */
+  }
+
+  function drawHouse() {
+
   }
   </script>
 </head>
 <body onload="drawGround()">
-  <canvas width="500" height="500" id="House" style="background-color: #46b9b9;"></canvas>
+  <canvas width="500" height="500" id="House"></canvas>
 </body>
 </html>
