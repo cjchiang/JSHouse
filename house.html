@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +7,8 @@
   <script>
   var canvas;
   var ctx;
-
+  var firstSlope = slope(100,400,450,265);
   function drawGround() {
-    canvas = document.getElementById('House');
-    ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#333333";
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 1.5;
 
     //road
     ctx.beginPath();
@@ -61,8 +57,11 @@
     ctx.closePath();
     ctx.fill();
 
+  }
+
+  function drawHouse() {
     //house body
-    ctx.fillStyle = "#b35900";
+    ctx.fillStyle = "#996633";
     ctx.beginPath();
     ctx.moveTo(100,400);
     ctx.lineTo(450,265);
@@ -72,128 +71,123 @@
     ctx.fill();
     ctx.stroke();
 
+    ctx.fillStyle = "#bf8040";
     //house side
     ctx.beginPath();
     ctx.moveTo(100,400);
-    ctx.lineTo(10,320);
-    ctx.lineTo(10,240);
-    ctx.stroke();
-    ctx.lineTo(100,310);
-    ctx.closePath();
-    ctx.fill();
-
-
-    //house left incline
-    ctx.beginPath();
-    ctx.moveTo(10,240);
-    ctx.lineTo(50,230);
-    ctx.lineTo(100,310);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = "#331a00";
-    ctx.beginPath();
-    ctx.moveTo(50,235);
-    ctx.lineTo(50,225);
-    ctx.lineTo(8,235);
-    ctx.lineTo(10,245);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(50,235);
-    ctx.lineTo(50,225);
-    ctx.lineTo(360,120);
-    ctx.lineTo(450,185);
+    ctx.lineTo(30,350);
+    ctx.lineTo(30,270);
+    ctx.lineTo(60,260);
     ctx.lineTo(100,310);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
-    /*
-    ctx.beginPath();
-    ctx.moveTo(450,185);
-    ctx.lineTo(360,140);
-    ctx.lineTo(360,100);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(360,100);
-    ctx.lineTo(360,140);
-    ctx.lineTo(100,230);
-    ctx.lineTo(10,240);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    */
-    /*
-    ctx.beginPath();
-    ctx.moveTo(100,310);
-    ctx.lineTo(450,185);
-    ctx.lineTo(425,150);
-    ctx.lineTo(50,270);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    */
-    /* ctx.beginPath();
-    ctx.moveTo(10,470);
-    ctx.lineTo(400,470);
-    ctx.lineTo(400,490);
-    ctx.lineTo(10,490);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(400,470);
-    ctx.lineTo(490,270);
-    ctx.lineTo(490,290);
-    ctx.lineTo(400,490);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    //grass
-    ctx.beginPath();
-    ctx.moveTo(10,470);
-    ctx.lineTo(100,270);
-    ctx.lineTo(490,270);
-    ctx.lineTo(400,470);
-    ctx.fillStyle = "green";
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.fillStyle = "red";
-    ctx.beginPath();
-    ctx.moveTo(105,450);
-    ctx.lineTo(355,450);
-    ctx.lineTo(355,300);
-    ctx.lineTo(105,300);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(355,450);
-    ctx.lineTo(425,400);
-    ctx.lineTo(425,250);
-    ctx.lineTo(355,300);
-    ctx.closePath();
-    ctx.fill();
-    ctx.stroke();
-    */
   }
 
-  function drawHouse() {
+  function drawRoof() {
+    //left top overflow
+    ctx.fillStyle = "#734d26";
+    ctx.beginPath();
+    ctx.moveTo(30,270);
+    ctx.lineTo(20,274);
+    ctx.lineTo(30,274);
+    ctx.closePath();
+    ctx.fill();
+    //left top edge
 
+    ctx.beginPath();
+    ctx.moveTo(20,274);
+    ctx.lineTo(18,270);
+    ctx.lineTo(60,255);
+    ctx.lineTo(60,260);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    //left right edge
+
+    ctx.beginPath();
+    ctx.moveTo(60,260);
+    ctx.lineTo(110,322);
+    ctx.lineTo(110,318);
+    ctx.lineTo(60,255);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+    //bottom edge
+    ctx.fillStyle = "#331a00";
+    ctx.beginPath();
+    ctx.moveTo(110,322);
+    ctx.lineTo(470,192);
+    ctx.lineTo(470,188);
+    ctx.lineTo(110,318);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //roof
+    ctx.fillStyle = "#604020";
+    ctx.beginPath();
+    ctx.moveTo(60,255);
+    ctx.lineTo(420,130);
+    ctx.lineTo(470,188);
+    ctx.lineTo(110,318);
+    ctx.closePath();
+    ctx.stroke();
+    ctx.fill();
+  }
+
+  function drawPond() {
+    //Pond
+    ctx.arc(0,0,50,0,Math.PI * 2);
+    ctx.fillStyle = "#0000b3";
+    ctx.fill();
+  }
+
+  function drawDecorations() {
+    //Door
+    var y1 = yValue(firstSlope,100,400,300);
+    var y2 = yValue(firstSlope,300,y1-40,300);
+    var y3 = yValue(firstSlope,300,y2,320);
+    var y4 = yValue(firstSlope,300,y1,320);
+    ctx.beginPath();
+    ctx.moveTo(300,y1);
+    //ctx.moveTo(300,323);
+    ctx.lineTo(300,y2);
+    ctx.lineTo(320,y3);
+    ctx.lineTo(320,y4);
+    ctx.closePath();
+    ctx.fillStyle = "#604020";
+    ctx.fill();
+    ctx.stroke();
+
+  }
+
+  function drawAll() {
+    canvas = document.getElementById('House');
+    ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#333333";
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1.5;
+
+    drawGround();
+    drawHouse();
+    drawRoof();
+    //drawPond();
+    drawDecorations();
+  }
+
+  function slope(x1,y1, x2,y2) {
+    return (y1-y2) / (x2-x1)
+  }
+
+  function yValue(slope, x, y, newX) {
+    var b = y - (slope * x);
+    var newY = slope * newX + b;
+    return y - newY + y;
   }
   </script>
 </head>
-<body onload="drawGround()">
+<body onload="drawAll()">
   <canvas width="500" height="500" id="House"></canvas>
 </body>
 </html>

@@ -6,7 +6,6 @@
   <script>
   var canvas;
   var ctx;
-
   function drawGround() {
 
     //road
@@ -63,8 +62,8 @@
     ctx.fillStyle = "#996633";
     ctx.beginPath();
     ctx.moveTo(100,400);
-    ctx.lineTo(450,265);
-    ctx.lineTo(450,185);
+    ctx.lineTo(350,303);
+    ctx.lineTo(350,213);
     ctx.lineTo(100,310);
     ctx.closePath();
     ctx.fill();
@@ -81,6 +80,27 @@
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+
+    //house garage side
+    ctx.beginPath();
+    ctx.moveTo(350,303);
+    ctx.lineTo(400,338);
+    ctx.lineTo(400,248);
+    ctx.lineTo(350,213);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //house garage
+    ctx.beginPath();
+    ctx.moveTo(400,338);
+    ctx.lineTo(480,307);
+    ctx.lineTo(480,217);
+    ctx.lineTo(440,200);
+    ctx.lineTo(400,248);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
   }
 
   function drawRoof() {
@@ -92,8 +112,8 @@
     ctx.lineTo(30,274);
     ctx.closePath();
     ctx.fill();
-    //left top edge
 
+    //left top edge
     ctx.beginPath();
     ctx.moveTo(20,274);
     ctx.lineTo(18,270);
@@ -102,8 +122,8 @@
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
-    //left right edge
 
+    //left right edge
     ctx.beginPath();
     ctx.moveTo(60,260);
     ctx.lineTo(110,322);
@@ -112,82 +132,165 @@
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
+
+    //left edge garage
+    ctx.beginPath();
+    ctx.moveTo(390,257);
+    ctx.lineTo(440,200);
+    ctx.lineTo(440,196);
+    ctx.lineTo(390,253);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //right edge garage
+    ctx.beginPath();
+    ctx.moveTo(440,200);
+    ctx.lineTo(490,225);
+    ctx.lineTo(490,221);
+    ctx.lineTo(440,196);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
     //bottom edge
     ctx.fillStyle = "#331a00";
     ctx.beginPath();
     ctx.moveTo(110,322);
-    ctx.lineTo(470,192);
-    ctx.lineTo(470,188);
+    ctx.lineTo(350,229);
+    ctx.lineTo(350,225);
     ctx.lineTo(110,318);
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
 
-    //roof
+    //bottom edge garage
+    ctx.beginPath();
+    ctx.moveTo(350,229);
+    ctx.lineTo(390,257);
+    ctx.lineTo(390,253);
+    ctx.lineTo(350,225);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //main roof
     ctx.fillStyle = "#604020";
     ctx.beginPath();
     ctx.moveTo(60,255);
-    ctx.lineTo(420,130);
-    ctx.lineTo(470,188);
+    ctx.lineTo(370,150);
+    ctx.lineTo(350,225);
     ctx.lineTo(110,318);
     ctx.closePath();
     ctx.stroke();
     ctx.fill();
-  }
 
-  function drawPond() {
-    //Pond
-    ctx.arc(0,0,50,0,Math.PI * 2);
-    ctx.fillStyle = "#0000b3";
+    //garage roof
+    ctx.beginPath();
+    ctx.moveTo(370,150);
+    ctx.lineTo(440,196);
+    ctx.lineTo(390,253);
+    ctx.lineTo(350,225);
+    ctx.closePath();
+    ctx.stroke();
     ctx.fill();
   }
 
   function drawDecorations() {
-    //Door
-    var lineSlope = slope(100,400,450,265);
-    var y1 = yValue(lineSlope,100,400,300);
-    var y2 = yValue(lineSlope,300,y1-40,300);
-    var y3 = yValue(lineSlope,300,y2,320);
-    var y4 = yValue(lineSlope,300,y1,320);
-    ctx.beginPath();
-    ctx.moveTo(300,y1);
-    //ctx.moveTo(300,323);
-    ctx.lineTo(300,y2);
-    ctx.lineTo(320,y3);
-    ctx.lineTo(320,y4);
-    ctx.closePath();
-    ctx.fillStyle = "#604020";
-    ctx.fill();
+    var newX1 = 100;
+    var newX2 = 100;
+    var plankSlope = slope(100,400,350,303)
+    //Planks
+    var verticalInterval = 8;
+    var bars = 12;
+    for(var x = 0; x < bars; x++) {
+      var startPoint = 400 - x* verticalInterval;
+      var endPoint = 303 - x* verticalInterval;
+      ctx.beginPath();
+      ctx.moveTo(100,startPoint);
+      ctx.lineTo(350,endPoint);
+      ctx.stroke();
+    }
+
+    for(var x = 0; x < bars; x++) {
+      ctx.beginPath();
+      ctx.moveTo(30,350 - (x*verticalInterval));
+      ctx.lineTo(100,400 - (x*verticalInterval));
+      ctx.stroke();
+    }
+    /*
+    newX1 = 100;
+    newX2 = 100;
+    for(var y = 0; y < 10; y++) {
+    newX1 = newX1 + horizontalInterval1;
+    newX2 = newX2 + horizontalInterval2;
+    if (x % 2 != 0) {
+    var startX = yValue(plankSlope,100,startPoint,newX2);
+    var endX = yValue(plankSlope,100,startPoint - verticalInterval2, newX2);
+    ctx.moveTo(newX2, startX);
+    ctx.lineTo(newX2, endX);
     ctx.stroke();
-
+    if (y % 2 == 0) {
+    var startX = yValue(plankSlope,100,startPoint,newX1);
+    var endX = yValue(plankSlope,100,startPoint - verticalInterval1, newX1);
+    ctx.moveTo(newX1, startX);
+    ctx.lineTo(newX1, endX);
+    ctx.stroke();
   }
+}
+}
+*/
 
-  function drawAll() {
-    canvas = document.getElementById('House');
-    ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#333333";
-    ctx.strokeStyle = "black";
-    ctx.lineWidth = 1.5;
 
-    drawGround();
-    drawHouse();
-    drawRoof();
-    //drawPond();
-    drawDecorations();
-  }
 
-  function slope(x1,y1, x2,y2) {
-    return (y1-y2) / (x2-x1)
-  }
+//Door
+ctx.beginPath();
+ctx.moveTo(300,323);
+ctx.lineTo(300,283);
+ctx.lineTo(320,275);
+ctx.lineTo(320,315);
+ctx.closePath();
+ctx.fillStyle = "#604020";
+ctx.fill();
+ctx.stroke();
 
-  function yValue(slope, x, y, newX) {
-    var b = y - (slope * x);
-    var newY = slope * newX + b;
-    return y - newY + y;
-  }
-  </script>
+//Garage Door
+ctx.beginPath();
+ctx.moveTo(405,336);
+ctx.lineTo(405,266);
+ctx.lineTo(475,239);
+ctx.lineTo(475,309);
+ctx.closePath();
+ctx.fillStyle = "#fff2e6";
+ctx.fill();
+ctx.stroke();
+}
+
+function drawAll() {
+  canvas = document.getElementById('House');
+  ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#333333";
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 1.5;
+
+  drawGround();
+  drawHouse();
+  drawDecorations();
+  drawRoof();
+}
+
+function slope(x1,y1, x2,y2) {
+  return (y1-y2) / (x2-x1)
+}
+
+function yValue(slope, x, y, newX) {
+  var b = y - (slope * x);
+  var newY = slope * newX + b;
+  return y - newY + y;
+}
+</script>
 </head>
 <body onload="drawAll()">
   <canvas width="500" height="500" id="House"></canvas>
 </body>
-</html>
+</html
