@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Page Title Goes Here</title>
+  <title>Chris Cho: A00972501, Nate Chiang: A00990317</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css" type="text/css" />
   <script>
   var canvas;
   var ctx;
@@ -15,7 +16,7 @@
   var doorKnobColor = "#ffff00";
   var garageLinesColor = "#000033";
   function drawGround() {
-
+    
     //road
     ctx.beginPath();
     ctx.moveTo(0,500);
@@ -308,198 +309,202 @@
       ctx.lineTo(475,309 - (x*verticalInterval));
       ctx.stroke();
     }
-
-    /*
-    newX1 = 100;
-    newX2 = 100;
-    for(var y = 0; y < 10; y++) {
-    newX1 = newX1 + horizontalInterval1;
-    newX2 = newX2 + horizontalInterval2;
-    if (x % 2 != 0) {
-    var startX = yValue(plankSlope,100,startPoint,newX2);
-    var endX = yValue(plankSlope,100,startPoint - verticalInterval2, newX2);
-    ctx.moveTo(newX2, startX);
-    ctx.lineTo(newX2, endX);
+  }
+  function drawChimney() {
+    //chimney left side
+    ctx.beginPath();
+    ctx.moveTo(30,266);
+    ctx.lineTo(30,236);
+    ctx.lineTo(40,232);
+    ctx.lineTo(40,262);
+    ctx.closePath();
+    ctx.fillStyle = decorationShadowColor;
+    ctx.fill();
     ctx.stroke();
-    if (y % 2 == 0) {
-    var startX = yValue(plankSlope,100,startPoint,newX1);
-    var endX = yValue(plankSlope,100,startPoint - verticalInterval1, newX1);
-    ctx.moveTo(newX1, startX);
-    ctx.lineTo(newX1, endX);
+
+    //chimney right side
+    ctx.beginPath();
+    ctx.moveTo(40,262);
+    ctx.lineTo(40,232);
+    ctx.lineTo(50,222);
+    ctx.lineTo(50,258);
+    ctx.closePath();
+    ctx.fillStyle = decorationMainColor;
+    ctx.fill();
+    ctx.stroke();
+
+    //chimney left edge
+    ctx.beginPath();
+    ctx.moveTo(30,236);
+    ctx.lineTo(32,236);
+    ctx.lineTo(39,226);
+    ctx.lineTo(34,230);
+    ctx.closePath();
+    ctx.fillStyle = decorationShadowColor;
+    ctx.fill();
+    ctx.stroke();
+
+    //chimney right edge
+    ctx.beginPath();
+    ctx.moveTo(39,226);
+    ctx.lineTo(50,224);
+    ctx.lineTo(50,222);
+    ctx.closePath();
+    ctx.fillStyle = decorationMainColor;
+    ctx.fill();
+    ctx.stroke();
+
+    //funnel
+    ctx.beginPath();
+    ctx.moveTo(32,236);
+    ctx.lineTo(40,232);
+    ctx.lineTo(50,222);
+    ctx.lineTo(39,226);
+    ctx.closePath();
+    ctx.fillStyle = roofColor;
+    ctx.fill();
+  }
+
+  function drawWindows() {
+    //left main window
+    ctx.beginPath();
+    ctx.moveTo(150,360);
+    ctx.lineTo(150,320);
+    ctx.lineTo(175,310);
+    ctx.lineTo(175,350);
+    ctx.closePath();
+    ctx.fillStyle = decorationMainColor;
+    ctx.fill();
+    ctx.stroke();
+
+    //right main window
+    ctx.beginPath();
+    ctx.moveTo(225,332);
+    ctx.lineTo(225,292);
+    ctx.lineTo(250,282);
+    ctx.lineTo(250,322);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //side window
+    ctx.beginPath();
+    ctx.moveTo(40,330);
+    ctx.lineTo(40,290);
+    ctx.lineTo(90,326);
+    ctx.lineTo(90,366);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    var offset = 5;
+    ctx.fillStyle = "#66ffcc";
+    //left window glass
+    ctx.beginPath();
+    ctx.moveTo(150 + offset,358 - offset);
+    ctx.lineTo(150 + offset,318 + offset);
+    ctx.lineTo(175 - offset,312 + offset);
+    ctx.lineTo(175 - offset,352 - offset);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //right window glass
+    ctx.beginPath();
+    ctx.moveTo(225 + offset,330 - offset);
+    ctx.lineTo(225 + offset,290 + offset);
+    ctx.lineTo(250 - offset,284 + offset);
+    ctx.lineTo(250 - offset,324 - offset);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    //side glass
+    ctx.beginPath();
+    ctx.moveTo(40 + offset,330 - offset);
+    ctx.lineTo(40 + offset,290 + offset * 2);
+    ctx.lineTo(90 - offset,326 + offset);
+    ctx.lineTo(90 - offset,366 - offset * 2);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = decorationMainColor;
+    ctx.beginPath();
+    ctx.moveTo(65,339);
+    ctx.lineTo(65,318);
+    ctx.moveTo(45,315);
+    ctx.lineTo(85,344);
+    ctx.moveTo(155,338);
+    ctx.lineTo(170,331);
+    ctx.moveTo(162,350);
+    ctx.lineTo(162,320);
+    ctx.moveTo(230,310);
+    ctx.lineTo(245,303);
+    ctx.moveTo(237,322);
+    ctx.lineTo(237,290);
     ctx.stroke();
   }
-}
-}
-*/
-}
-function drawChimney() {
-  //chimney left side
-  ctx.beginPath();
-  ctx.moveTo(30,266);
-  ctx.lineTo(30,236);
-  ctx.lineTo(40,232);
-  ctx.lineTo(40,262);
-  ctx.closePath();
-  ctx.fillStyle = decorationShadowColor;
-  ctx.fill();
-  ctx.stroke();
 
-  //chimney right side
-  ctx.beginPath();
-  ctx.moveTo(40,262);
-  ctx.lineTo(40,232);
-  ctx.lineTo(50,222);
-  ctx.lineTo(50,258);
-  ctx.closePath();
-  ctx.fillStyle = decorationMainColor;
-  ctx.fill();
-  ctx.stroke();
+  function drawAll() {
+    canvas = document.getElementById('House');
+    ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#333333";
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 1;
 
-  //chimney left edge
-  ctx.beginPath();
-  ctx.moveTo(30,236);
-  ctx.lineTo(32,236);
-  ctx.lineTo(39,226);
-  ctx.lineTo(34,230);
-  ctx.closePath();
-  ctx.fillStyle = decorationShadowColor;
-  ctx.fill();
-  ctx.stroke();
+    drawGround();
+    drawHouse();
+    drawPlanks();
+    drawRoof();
+    drawChimney();
+    drawDecorations();
+    drawWindows();
+  }
 
-  //chimney right edge
-  ctx.beginPath();
-  ctx.moveTo(39,226);
-  ctx.lineTo(50,224);
-  ctx.lineTo(50,222);
-  ctx.closePath();
-  ctx.fillStyle = decorationMainColor;
-  ctx.fill();
-  ctx.stroke();
+  function slope(x1,y1, x2,y2) {
+    return (y1-y2) / (x2-x1)
+  }
 
-  //funnel
-  ctx.beginPath();
-  ctx.moveTo(32,236);
-  ctx.lineTo(40,232);
-  ctx.lineTo(50,222);
-  ctx.lineTo(39,226);
-  ctx.closePath();
-  ctx.fillStyle = roofColor;
-  ctx.fill();
-}
-
-function drawWindows() {
-  //left main window
-  ctx.beginPath();
-  ctx.moveTo(150,360);
-  ctx.lineTo(150,320);
-  ctx.lineTo(175,310);
-  ctx.lineTo(175,350);
-  ctx.closePath();
-  ctx.fillStyle = decorationMainColor;
-  ctx.fill();
-  ctx.stroke();
-
-  //right main window
-  ctx.beginPath();
-  ctx.moveTo(225,332);
-  ctx.lineTo(225,292);
-  ctx.lineTo(250,282);
-  ctx.lineTo(250,322);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-
-  //side window
-  ctx.beginPath();
-  ctx.moveTo(40,330);
-  ctx.lineTo(40,290);
-  ctx.lineTo(90,326);
-  ctx.lineTo(90,366);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-
-  var offset = 5;
-  ctx.fillStyle = "#66ffcc";
-  //left window glass
-  ctx.beginPath();
-  ctx.moveTo(150 + offset,358 - offset);
-  ctx.lineTo(150 + offset,318 + offset);
-  ctx.lineTo(175 - offset,312 + offset);
-  ctx.lineTo(175 - offset,352 - offset);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-
-  //right window glass
-  ctx.beginPath();
-  ctx.moveTo(225 + offset,330 - offset);
-  ctx.lineTo(225 + offset,290 + offset);
-  ctx.lineTo(250 - offset,284 + offset);
-  ctx.lineTo(250 - offset,324 - offset);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-
-  //side glass
-  ctx.beginPath();
-  ctx.moveTo(40 + offset,330 - offset);
-  ctx.lineTo(40 + offset,290 + offset * 2);
-  ctx.lineTo(90 - offset,326 + offset);
-  ctx.lineTo(90 - offset,366 - offset * 2);
-  ctx.closePath();
-  ctx.fill();
-  ctx.stroke();
-
-  ctx.lineWidth = 2;
-  ctx.strokeStyle = decorationMainColor;
-  ctx.beginPath();
-  ctx.moveTo(65,339);
-  ctx.lineTo(65,318);
-  ctx.moveTo(45,315);
-  ctx.lineTo(85,344);
-  ctx.moveTo(155,338);
-  ctx.lineTo(170,331);
-  ctx.moveTo(162,350);
-  ctx.lineTo(162,320);
-  ctx.moveTo(230,310);
-  ctx.lineTo(245,303);
-  ctx.moveTo(237,322);
-  ctx.lineTo(237,290);
-  ctx.stroke();
-}
-
-function draw() {
-
-}
-function drawAll() {
-  canvas = document.getElementById('House');
-  ctx = canvas.getContext("2d");
-  ctx.fillStyle = "#333333";
-  ctx.strokeStyle = "black";
-  ctx.lineWidth = 1;
-
-  drawGround();
-  drawHouse();
-  drawPlanks();
-  drawRoof();
-  drawChimney();
-  drawDecorations();
-  drawWindows();
-}
-
-function slope(x1,y1, x2,y2) {
-  return (y1-y2) / (x2-x1)
-}
-
-function yValue(slope, x, y, newX) {
-  var b = y - (slope * x);
-  var newY = slope * newX + b;
-  return y - newY + y;
-}
-</script>
+  function yValue(slope, x, y, newX) {
+    var b = y - (slope * x);
+    var newY = slope * newX + b;
+    return y - newY + y;
+  }
+  </script>
 </head>
 <body onload="drawAll()">
-  <canvas width="500" height="500" id="House"></canvas>
+  <div class="container">
+    <table width="500px">
+      <caption>House</caption>
+      <tr>
+        <th align="left">Chris Cho</th>
+        <td>A00972501</td>
+      </tr>
+      <tr>
+        <th align="left">Nate Chinag</th>
+        <td>A00990317</td>
+      </tr>
+    </table>
+
+    </ br></br>
+
+    <canvas width="500" height="500" id="House"></canvas>
+
+    </ br></ br>
+
+    <dl>
+      <dt>Completed</dt>
+      <dd>The house</dd>
+      <dt>Incompleted</dt>
+      <dd>The smoke.</dd>
+      <dd>Slider.</dd>
+      <dd>Some more stuff in the back of the house.</dd>
+      <dt>Challenges</dt>
+      <dd>Getting the smoke to change size gradually.</dd>
+      <dd>Getting the Smoke to change color gradually.</dd>
+    </dl>
+  </div>
 </body>
-</html
+</html>
