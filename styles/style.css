@@ -23,6 +23,7 @@ body {
 table, th, td {
     border: 1px solid #d3d3d3;
     border-collapse: collapse;
+		text-align: left;
 }
 
 dt {
