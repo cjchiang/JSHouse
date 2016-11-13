@@ -6,45 +6,45 @@
   <link rel="stylesheet" href="styles/style.css" type="text/css" />
 </head>
 <body onload="drawAll()">
+  <h2>Our House</h2>
   <div class="container">
     <table width="500px">
-      <caption>House</caption>
+      <caption>Student Info</caption>
       <tr>
         <th align="left">Chris Cho</th>
         <td>A00972501</td>
       </tr>
       <tr>
-        <th align="left">Nate Chinag</th>
+        <th align="left">Chonjou Chiang</th>
         <td>A00990317</td>
       </tr>
     </table>
-
     </ br></br>
-
     <canvas id="House" width="500" height="500"></canvas>
-
   </br></br>
-
-  <input type="range" id="speedRange" min="0.2" max="1.5" step="0.1" value="0.2" oninput="updateSpeed()" onchange="updateSpeed()">
-
+  <section class="rangeControl">
+    <h4>Smoke Animation Speed</h4>
+    <input type="range" id="speedRange" min="0.2" max="1.5" step="0.1" value="0.2" oninput="updateSpeed()" onchange="updateSpeed()">
+  </section>
   <script type="text/javascript" src="scripts/smoke.js"></script>
   <script type="text/javascript" src="scripts/house.js"></script>
-  
   </ br></ br>
-
-  <dl>
-    <dt>Completed</dt>
-    <dd>The house.</dd>
-    <dd>The smoke.</dd>
-    <dd>Adjustable speed via slider.</dd>
-    <dt>Incompleted</dt>
-    <dd>Some extra stuff in the back of the house.</dd>
-    <dd>Dynamically changing color of smoke.</dd>
-    <dt>Challenges</dt>
-    <dd>Getting the smoke to change size gradually.</dd>
-    <dd>Getting the Smoke to change color gradually.</dd>
-    <dd>Getting the slider to change speed of smoke. </dd>
-  </dl>
+  <section>
+    <dl>
+      <dt>Completed</dt>
+      <dd>The house.</dd>
+      <dd>The smoke.</dd>
+      <dd>The decorations for the house. </dd>
+      <dd>Adjustable speed via slider.</dd>
+      <dt>Incompleted</dt>
+      <dd>Nothing</dd>
+      <dt>Challenges</dt>
+      <dd>Getting the smoke to change size gradually.</dd>
+      <dd>Getting the Smoke to change color gradually.</dd>
+      <dd>Getting the slider to change speed of smoke. </dd>
+      <dd>Making the house from a different perspective. </dd>
+    </dl>
+  </section>
 </div>
 </body>
 </html>

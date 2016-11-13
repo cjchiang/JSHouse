@@ -19,12 +19,12 @@ function Particle() {
     // Particle properties
     this.size = 10;
     this.opacity = 0.5;
-    this.x = 40;
-    this.y = 212;
+    this.x = 35;
+    this.y = 210;
     this.vx = Math.random() * 2 - 0.5;
     this.vy = Math.random() * 3 - 1;
     this.gravity = -0.5;
-    
+
     particleIndex++;
     particles[particleIndex] = this;
     this.id = particleIndex;
@@ -38,22 +38,22 @@ Particle.prototype.draw = function() {
     this.x += (this.vx * speed);
     this.y += (this.vy * speed);
     this.vy += (this.gravity * speed);
-    
+
     // Ages the particle
     this.life++;
-    
+
     // Kills of old particle
     if (this.life >= this.maxLife) {
         delete particles[this.id];
     }
-    
+
     // Randomly increase the size
     if (this.size < maxSize) {
         if (Math.random() > 0.97) {
             this.size++;
         }
     }
-    
+
     // Draws the particle----------------------------------------
     context.beginPath();
     context.fillStyle = "rgba(200,200,200,0.1)";
@@ -67,14 +67,14 @@ setInterval(function(){
     // Clears previous particle frames---------------------------
     context.fillStyle = "rgba(0,153,51,0.2)";
     context.fillRect(0,0,110,228);
-    
+
     // Create new particles with some randomness
     for (var i = 0; i < density; i++) {
         if (Math.random() > 0.85) {
             new Particle();
         }
     }
-    
+
     // Spawn new particles
     for (var i in particles) {
         particles[i].draw();
